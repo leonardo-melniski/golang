@@ -3,15 +3,22 @@ package main
 import "fmt"
 
 func main() {
-	var number int
-	fmt.Scan(&number)
+	number := returnInt()
+	fmt.Println(number)
 
-	switch number {
-	case 1:
-		fmt.Println("one")
-	case 2:
-		fmt.Println("two")
-	default:
-		fmt.Println("fail")
-	}
+	number = privateFunction(number)
+
+	PublicFunction(number)
+}
+
+func returnInt() int {
+	return 1
+}
+
+func privateFunction(number int) int {
+	return number + 1
+}
+
+func PublicFunction(number int) {
+	fmt.Println(number)
 }

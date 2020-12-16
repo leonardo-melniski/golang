@@ -62,3 +62,22 @@ or with type inference
 	}
 ```
 ps: `break` is automatically in go
+
+## function
+
+```go
+    func returnInt() int {
+        return 1
+    }
+```
+`visibility` by first char 
+- `lower` is `p`rivate
+- `Upper` is `P`ublic
+
+```go
+    func privateFunction() {   
+    }
+    
+    func PublicFunction() {   
+    }
+```
