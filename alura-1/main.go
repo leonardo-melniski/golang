@@ -19,6 +19,6 @@ func privateFunction(number int) int {
 	return number + 1
 }
 
-func PublicFunction(number int) {
-	fmt.Println(number)
+func multipleReturns() (string, int) {
+	return "str", 1
 }

@@ -81,3 +81,11 @@ func privateFunction() {
 func PublicFunction() {   
 }
 ```
+
+multiple returns
+
+```go
+func multipleReturns() (string, int) {
+	return "str", 1
+}
+```
