@@ -1,24 +1,24 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+)
 
 func main() {
-	number := returnInt()
-	fmt.Println(number)
+	url := "https://www.alura.com.br"
+	status := healthCheck(url)
+	fmt.Println("the site of url:", url, "is", status)
 
-	number = privateFunction(number)
-
-	PublicFunction(number)
+	url = "https://random-status-code.herokuapp.com"
+	status = healthCheck(url)
+	fmt.Println("the site of url:", url, "is", status)
 }
 
-func returnInt() int {
-	return 1
-}
-
-func privateFunction(number int) int {
-	return number + 1
-}
-
-func multipleReturns() (string, int) {
-	return "str", 1
+func healthCheck(site string) string {
+	resp, _ := http.Get(site)
+	if resp.StatusCode == 200 {
+		return "online"
+	}
+	return "offline"
 }

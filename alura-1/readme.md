@@ -89,3 +89,10 @@ func multipleReturns() (string, int) {
 	return "str", 1
 }
 ```
+
+example of request
+
+```go
+import "net/http"
+resp, err := http.Get(site)
+```
