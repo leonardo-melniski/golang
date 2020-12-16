@@ -3,28 +3,26 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"time"
 )
 
-func main() {
-	var numbers [4]int
-	numbers[0] = 1
-	numbers[1] = 2
-	fmt.Println(numbers) // [1 2 0 0]
+const delay = 2
 
-	slice := []int{1, 2}                       // slice - abstraction of array
-	fmt.Println(slice, len(slice), cap(slice)) // [1 2] 2 2
-	slice = append(slice, 3)                   // append and duplicate capacity
-	fmt.Println(slice, len(slice), cap(slice)) // [1 2 3] 3 4
+func main() {
+	urls := []string{
+		"https://www.alura.com.br",
+		"https://random-status-code.herokuapp.com",
+	}
+
+	for i, url := range urls {
+		checkSite(i, url)
+		time.Sleep(delay * time.Second)
+	}
 }
 
-func checkSites() {
-	url := "https://www.alura.com.br"
+func checkSite(index int, url string) {
 	status := healthCheck(url)
-	fmt.Println("the site of url:", url, "is", status)
-
-	url = "https://random-status-code.herokuapp.com"
-	status = healthCheck(url)
-	fmt.Println("the site of url:", url, "is", status)
+	fmt.Println("site[", index, "] :=", url, "is", status)
 }
 
 func healthCheck(site string) string {

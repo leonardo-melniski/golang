@@ -113,3 +113,20 @@ reflect.TypeOf(slice)    // []int
 len(slice)               // 4
 cap(slice)               // 6 - duplicate initial len
 ```
+
+## loop
+
+```go
+for i := 0; i < len(collection); i++ {
+}
+
+for i, item := range collection {
+}
+```
+
+# time
+
+sleep example
+```go
+time.Sleep(2 * time.Second)
+```
