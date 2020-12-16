@@ -30,3 +30,11 @@ or with type inference
     var name = "Username"
     name := "Username"
 ```
+
+## input
+
+```go
+    var age int
+    fmt.Scanf("%d", &age) // like C
+    fmt.Scan(&age) // type-inference
+```
