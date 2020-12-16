@@ -96,3 +96,20 @@ example of request
 import "net/http"
 resp, err := http.Get(site)
 ```
+
+## array and slice
+
+```go
+var array [4]int // array - fixed size
+array[0] = 1
+array[1] = 2
+fmt.Println(array)       // [1 2 0 0]
+reflect.TypeOf(array)    // [4]int
+
+slice := []int {1, 2, 3} // slice - abstraction of array
+cap(slice)               // 3 - capacity of array
+slice = append(slice, 4) // append 4 to slice, and duplicate capacity of inital array
+reflect.TypeOf(slice)    // []int
+len(slice)               // 4
+cap(slice)               // 6 - duplicate initial len
+```
