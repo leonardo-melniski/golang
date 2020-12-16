@@ -1,4 +1,4 @@
-# introduction of go
+# introduction of go lang
 
 ## intro and convenctions 
 
@@ -38,3 +38,27 @@ or with type inference
     fmt.Scanf("%d", &age) // like C
     fmt.Scan(&age) // type-inference
 ```
+
+## conditions
+
+```go
+    if number == 1 {
+        fmt.Println("one")
+    } else if number == 2 {
+        fmt.Println("two")
+    } else {
+        fmt.Println("fail")
+    }
+```
+
+```go
+	switch number {
+	case 1:
+		fmt.Println("one")
+	case 2:
+		fmt.Println("two")
+	default:
+		fmt.Println("fail")
+	}
+```
+ps: `break` is automatically in go
