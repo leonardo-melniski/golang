@@ -122,11 +122,34 @@ for i := 0; i < len(collection); i++ {
 
 for i, item := range collection {
 }
+
+for {
+    // [...]
+    if condition {
+        break
+    }
+}
 ```
 
-# time
+## time
 
 sleep example
 ```go
 time.Sleep(2 * time.Second)
+```
+
+## file
+
+```go
+file, _ := os.Open(filename)
+reader := bufio.NewReader(file)
+for {
+    line, err := reader.ReadString('\n')
+    line = strings.TrimSpace(line)
+    fmt.Println(line)
+
+    if err == io.EOF {
+        break
+    }
+}
 ```

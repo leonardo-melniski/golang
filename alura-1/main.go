@@ -1,22 +1,28 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"io"
 	"net/http"
-	"time"
+	"os"
+	"strings"
 )
 
 const delay = 2
+const filename = "sites.txt"
 
 func main() {
-	urls := []string{
-		"https://www.alura.com.br",
-		"https://random-status-code.herokuapp.com",
-	}
+	file, _ := os.Open(filename)
+	reader := bufio.NewReader(file)
+	for {
+		line, err := reader.ReadString('\n')
+		line = strings.TrimSpace(line)
+		fmt.Println(line)
 
-	for i, url := range urls {
-		checkSite(i, url)
-		time.Sleep(delay * time.Second)
+		if err == io.EOF {
+			break
+		}
 	}
 }
 
