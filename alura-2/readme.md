@@ -24,4 +24,10 @@ account := CurrentAccount{"holder2", 100, 50, 20.3}
 var account *CurrentAccount
 account = new(CurrentAccount)
 account.holder = "holder"
+
+// method def and call
+func (c *CurrentAccount) Withdrawal(value float64) (float64, string) {
+}
+account.Withdrawal(value)
+
 ```
