@@ -153,3 +153,12 @@ for {
     }
 }
 ```
+
+open with flag or create
+
+```go
+file, err := os.OpenFile(logFilename, os.O_RDWR|os.O_CREATE, 0644)
+strTime := time.Now().Format("2006-01-02 15:04:05")
+file.WriteString(strTime + " - example\n")
+file.Close()
+```
