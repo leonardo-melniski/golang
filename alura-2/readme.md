@@ -26,8 +26,25 @@ account = new(CurrentAccount)
 account.holder = "holder"
 
 // method def and call
-func (c *CurrentAccount) Withdrawal(value float64) (float64, string) {
+func (c *CurrentAccount) Withdraw(value float64) (float64, string) {
 }
-account.Withdrawal(value)
+account.Withdraw(value)
+```
 
+## struct composition
+
+```go
+// in clients/client.go
+type Client struct {
+	ID   string
+	Name string
+}
+
+// in accounts/currentAccounts.go
+type CurrentAccount struct {
+	Holder  clients.Client
+	Branch  int
+	Account int
+	Balance float64
+}
 ```

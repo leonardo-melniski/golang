@@ -1,13 +1,15 @@
 package accounts
 
+import "../clients"
+
 type CurrentAccount struct {
-	Holder  string
+	Holder  clients.Client
 	Branch  int
 	Account int
 	Balance float64
 }
 
-func (c *CurrentAccount) Withdrawal(value float64) string {
+func (c *CurrentAccount) Withdraw(value float64) string {
 	if value <= 0 {
 		return "Invalid input"
 	}
