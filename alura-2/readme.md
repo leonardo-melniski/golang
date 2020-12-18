@@ -48,3 +48,28 @@ type CurrentAccount struct {
 	Balance float64
 }
 ```
+
+
+## interface
+
+```go
+func (c *CurrentAccount) Withdraw(value float64) (float64, string) {
+}
+func (c *SavingsAccount) Withdraw(value float64) (float64, string) {
+}
+
+func PayBill(account WithdrawTransaction, value float64) string {
+	return account.Withdraw(value)
+}
+
+type WithdrawTransaction interface {
+	Withdraw(value float64) string
+}
+```
+
+`CurrentAccount` and `SavingsAccount` implements method `Withdraw` of `interface` then the function `PayBill` receive a pointer of savings accounts or current account.
+
+```go
+PayBill(&currentAccount, value)
+PayBill(&savingsAccount, value)
+```
